@@ -1,0 +1,40 @@
+
+seed: 42
+
+paths:
+  raw_dir: data/raw
+  processed_dir: data/processed
+  models_dir: models
+  reports_dir: reports
+
+data:
+  text_col: text
+  label_col: label  # 0 = FAKE, 1 = REAL
+  test_size: 0.15
+  val_size: 0.15
+  stratify: true
+  max_samples: null  # set to an int to cap training size for quick runs
+
+tfidf:
+  max_features: 100000
+  ngram_min: 1
+  ngram_max: 2
+  min_df: 2
+  C: 4.0
+  max_iter: 200
+
+glove:
+  vector_name: "glove-wiki-gigaword-100"  # downloaded via gensim the first time
+  C: 4.0
+  max_iter: 200
+
+bert:
+  model_name: "distilbert-base-uncased"
+  num_train_epochs: 1
+  learning_rate: 2e-5
+  weight_decay: 0.01
+  per_device_train_batch_size: 4
+  per_device_eval_batch_size: 4
+  warmup_ratio: 0.1
+  max_length: 64
+  fp16: false
