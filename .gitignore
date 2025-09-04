@@ -16,3 +16,9 @@ reports/*
 !reports/figures/
 .DS_Store
 Thumbs.db
+
+# Ignore large model and binary files
+*.safetensors
+*.pt
+*.bin
+*.joblib
